@@ -10,6 +10,7 @@ playerImage.src = 'shadow_dog.png';
 function animate(){
 	context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 	context.fillRect(100, 50, 100, 100);
+	context.drawImage(playerImage, 0, 0, 1800, 800, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 	requestAnimationFrame(animate);
 }
 animate();
