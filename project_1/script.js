@@ -9,14 +9,20 @@ const spriteWidth = 575;
 const spriteHeight = 523;
 let frameX = 1;
 let frameY = 1;
+let gameFrame = 0;
+const staggerFrames = 5;
 
 function animate(){
 	context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 	context.fillRect(100, 50, 100, 100);
 	context.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight,
 		spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
-	if (frameX < 6) frameX++;
-	else frameX = 0;
+	if (gameFrame % staggerFrames == 0){
+		if (frameX < 6) frameX++;
+		else frameX = 0;
+	}
+
+	gameFrame++;
 	requestAnimationFrame(animate);
 }
 animate();
